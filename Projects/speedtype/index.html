@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Oghene Agba - Speed typing Game</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" media="screen" href="master.css" />
+  </head>
+  <body>
+    <header>
+      <h1><span>Word</span>Beater</h1>
+    </header>
+    <main>
+      <div class="read">
+          <!-- rules -->
+          <h3>Type the Given Word Within <span id="seconds">5</span> seconds</h3>
+          <!-- words -->
+          <h1><span id="current-word">hello</span></h1>
+          <input type="text" id="word-input" placeholder="Start typing..." autofocus>
+          <h2><span id="message"><!--Game over!!!--></span></h2>
+      </div>
+
+      <div class="time&score">
+        <h2>Time Left: <span id="time">0</span></h2>
+        <h2>Score: <span id="score">0</span></h2>
+      </div>
+
+      <div class="instructions">
+        <h5>Instructions</h5>
+        <p>Type each word in the given amount of seconds. To play again, just type the current word. Your score will reset</p>
+      </div>
+
+    </main>
+
+  </body>
+  <script src="script.js"></script>
+</html>

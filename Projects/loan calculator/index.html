@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oghene Agba - Loan Calculator</title>
+    <link rel="stylesheet" href="master.css">
+  </head>
+  <style>
+      :root{
+        --p-color: #333;
+        --f-size: 18px;
+        --b-radius: 10px;
+      }
+      *{
+        font-family: "Poppins", sans-serif;
+      }
+    form{
+      width: 400px;
+      margin: 5% auto;
+      border: 1px solid #ddd;
+      border-radius: var(--b-radius);
+      padding: 10px;
+      box-shadow: 5px 10px 25px rgba(10, 0, 0, 0.5);
+      text-align: center;
+    }
+    h1{
+      color: var(--p-color);
+    }
+    h3{
+      color: #555ddd;
+    }
+    label{
+      font-size: var(--f-size);
+    }
+    input{
+      padding: 5px;
+      width: 200px;
+      border-radius: var(--b-radius);
+      border: 1px solid var(--p-color);
+      outline: none;
+    }
+    input[type='number']{
+      font-size: var(--f-size);
+    }
+  </style>
+  <body>
+
+    <form>
+      <h1>Branch Loan</h1>
+      <h3>Auto - Calculator</h3>
+      <label>Loan amount: Naira</label><br>
+      <input type="number" onchange="computeLoan()" class="amount" min="1500" max="1000000" value="1500"><br>
+      <label>Interest Rate: </label><br>
+      <!--one . fifteen 6 and Naira 4,079 rate changes-->
+      <input type="number" onchange="computeLoan()" class="interest-rate" min="0" max="100" value="1.666666666666666" step=".1"> %
+      <br>
+      <label>Months: </label><br>
+      <input type="number" onchange="computeLoan()" class="months" min="1" max="72" value="1" step="1">
+
+      <h2 class="payment"></h2>
+    </form>
+
+  </body>
+
+  <script>
+    function computeLoan(){
+      var amount = document.querySelector('.amount').value;
+      var interest_rate = document.querySelector('.interest-rate').value;
+      var months = document.querySelector('.months').value;
+
+      var interest = (amount * (interest_rate * .01)) / months;
+      var payment = ((amount / months) + interest).toFixed(2);
+      var payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      document.querySelector('.payment').innerHTML = "Monthly Payment = N " + payment;
+
+    }
+  </script>
+</html>

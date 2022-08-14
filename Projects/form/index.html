@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Oghene Agba - Login Validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+  <body>
+
+    <form class="" action="" method="post">
+      <h2>Facebook </h2>
+      <div class="success error"></div>
+      <div class="form">
+        <label>Name</label><br>
+        <input type="text" class="name" value="" placeholder="Enter your name">
+        <br>
+        <label>Password</label><br>
+        <input type="text" class="pass" value="" placeholder="Enter your password">
+        <br>
+        <input type="submit" class="valid" value="Login">
+      </div>
+    </form>
+
+  </body>
+
+  <script>
+
+    var formBtn = document.querySelector('.valid');
+
+  let valid = function(e){
+    e.preventDefault();
+    var success = document.querySelector('.success');
+    var error = document.querySelector('.error');
+
+    var dbname = 'david';
+    var dbpass = '123';
+
+      var name = document.querySelector('.name').value;
+      var pass = document.querySelector('.pass').value;
+
+      if (name == dbname && pass == dbpass) {
+        //alert('You logged in successfully ' + name);
+        success.innerText = name + ' you logged in successfully ';
+      }
+      else if (name == dbname && pass !== dbpass){
+        //alert('Your password incorrect!! ' + name);
+        success.innerText = name + ' your password is incorrect ';
+      }
+      else if (name !== dbname && pass == dbpass){
+        //alert('Your name is not valid or incorrect!!');
+        success.innerText = 'Your name is not valid or incorrect!!';
+      }
+      else  {
+        //alert('User name or password empty or user does not exist!!');
+        success.innerText = 'User name or password empty or user does not exist!!';
+      }
+
+
+  }
+
+  formBtn.onclick = valid;
+
+
+  </script>
+  <style>
+    :root{
+      --p-color: #333;
+      --f-size: 18px;
+      --b-radius: 10px;
+    }
+    *{
+      font-family: "Poppins", sans-serif;
+    }
+    body{
+
+    }
+    form{
+      width: 400px;
+      margin: 5% auto;
+      border: 1px solid #ddd;
+      border-radius: var(--b-radius);
+      padding: 10px;
+      box-shadow: 5px 10px 25px rgba(5, 0, 0, 0.2);
+    }
+    .success,
+    .error{
+      padding: 10px;
+      font-size: 18px;
+    }
+    .success{
+      color: #6fd649;
+      text-align: center;
+    }
+    .error{
+      color: red;
+      text-align: center;
+    }
+    .form{
+      padding: 0px 80px;
+    }
+    h2{
+      color: #555ddd;
+      text-align: center;
+      font-size: 30px;
+
+    }
+    label{
+      font-size: var(--f-size);
+    }
+    input[type='text']{
+      padding: 5px;
+      width: 96%;
+      border-radius: 5px;
+      border: 1px solid var(--p-color);
+      outline: none;
+      margin: 10px 0px;
+      font-size: var(--f-size);
+    }
+    input[type='submit']{
+      width: 100%;
+      padding: 5px;
+      display: block;
+      border-radius: 5px;
+      background: #555ddd;
+      color: #fff;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      font-size: var(--f-size);
+    }
+    /*----*/
+
+  </style>
+</html>
